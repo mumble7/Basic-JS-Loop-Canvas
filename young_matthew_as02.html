@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 02</title>
+    <style>
+        body {
+            background: #dddddd;
+        }
+
+        #canvas {
+            margin: 10px;
+            padding: 10px;
+            background: #FFF;
+            border: thin inset #A6A6A6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600">
+        Canvas not supported!
+    </canvas>
+    <p id="demo"></p>
+    <h1>New Line</h1>
+    <p id="loop"></p>
+    <script>
+        var today = new Date();
+        var birthday = new Date(2020, 10, 28);
+
+        function daysBetween(date1, date2) {
+
+            var oneDay = 24 * 60 * 60 * 1000;
+            console.log(oneDay);
+            var date1MS = date1.getTime();
+            console.log(date1MS);
+            var date2MS = date2.getTime();
+            console.log(date2MS);
+            var differenceMS = Math.abs(date1MS - date2MS);
+            console.log(differenceMS);
+            var difference = Math.round(differenceMS / oneDay);
+            return difference;
+        }
+
+        console.log(daysBetween);
+
+        var daysLeft = daysBetween(today, birthday);
+        console.log(daysLeft);
+        if (daysLeft > 100) {
+            console.log("You're going to have to wait a long time!")
+        } else {
+            console.log("You're not going to have to wait long!")
+        }
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.font = '24pt Arial';
+
+        ctx.fillText('Days Left: ' + daysLeft, 20, 50);
+
+
+        /* TODO New Lines: Using a for loop, loop 10 times. Each iteration of the loop display the current increment of the loop as text to the canvas.
+           Hints: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for and
+           https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText */
+
+        let str = "";
+
+        for (let i = 0; i < 9; i++) {
+            str = str + i;
+        }
+
+        console.log(str);
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.font = '24pt Arial';
+
+        ctx.fillText('Basic Loop Iteration: ' + str, 20, 150);
+
+        /* Extra Credit: Create a while loop or a do while loop that displays text to the canvas 5 times. */
+
+        let text = "";
+        let l = 0;
+
+        while (l < 5) {
+            text += "Text Iteration ";
+            l++;
+        }
+        console.log(text);
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.font = '10pt Arial';
+
+        ctx.fillText('Boring: ' + text, 20, 250);
+
+
+        //New Line
+        let chuck = "";
+        let w = 1;
+
+        while (w < 6) {
+            chuck += w + ": How much wood could a woodchuck chuck if a woodchuck could chuck wood?<br>";
+            w++;
+        }
+
+        document.getElementById("loop").innerHTML = chuck;
+
+    </script>
+</body>
+
+</html>
